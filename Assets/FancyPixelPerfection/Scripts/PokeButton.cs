@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PokeButton : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private UnityEvent OnClick;
+    
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
