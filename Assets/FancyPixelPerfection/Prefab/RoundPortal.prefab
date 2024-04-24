@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2267006137878420330}
   - component: {fileID: 7902951598057429310}
   m_Layer: 0
-  m_Name: BetterPortal
+  m_Name: RoundPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
