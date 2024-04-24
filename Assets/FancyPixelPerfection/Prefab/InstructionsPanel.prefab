@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830620641482257449}
   - component: {fileID: 1968734834538336051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BackgroundPanelSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 1447956974104705876}
   - component: {fileID: 173499392055063612}
   - component: {fileID: 8472674656765701256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstructionsTMP (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7902198735728376987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstructionsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4189933374110745247}
   - component: {fileID: 9035290028459326003}
   - component: {fileID: 8922002066207083588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BackgroundPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9f5a54a438499ea42a0098ccaba33e66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 8718911397945369307}
   - component: {fileID: 1443429670197029656}
   - component: {fileID: 2954017623113649438}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstructionsTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 8737973416074380543}
   - component: {fileID: 1510124196835092266}
   - component: {fileID: 6490008095592319035}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BGPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9f5a54a438499ea42a0098ccaba33e66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,9 +640,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1830620641482257449}
     m_Modifications:
+    - target: {fileID: 3523157421034116276, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101692467956713524, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4999532634118287597, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
       propertyPath: m_Name
       value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999532634118287597, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5632376808791321175, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
       propertyPath: m_LocalScale.x
@@ -700,6 +712,10 @@ PrefabInstance:
       propertyPath: m_text
       value: NEXT LEVEL
       objectReference: {fileID: 0}
+    - target: {fileID: 8141747064761314481, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -718,9 +734,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1830620641482257449}
     m_Modifications:
+    - target: {fileID: 3523157421034116276, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101692467956713524, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4999532634118287597, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
       propertyPath: m_Name
       value: PrevButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999532634118287597, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5632376808791321175, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -761,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 5632376808791321175, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141747064761314481, guid: 0162a964817865247ae72b7e9024ecb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
