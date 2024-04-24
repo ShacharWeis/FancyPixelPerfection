@@ -23,10 +23,14 @@ public class NavGenator : MonoBehaviour
     void Start()
     {
         navmesh = GetComponent<NavMeshSurface>();
-        CreateNav();
-        CreatePath();
+       // Invoke("CreateNav", 5f );
+       // Invoke("CreatePath", 7f );
     }
 
+    public void SetGoal(ref Transform target)
+    {
+        goal = target;
+    }
     public void CreateNav()
     {
         navmesh.BuildNavMesh();
@@ -36,7 +40,8 @@ public class NavGenator : MonoBehaviour
     {
         navMeshPath = new NavMeshPath();
         Vector3 targetPoint = goal.transform.position;
-        Vector3 startPoint = Camera.main.transform.position;
+          Vector3 startPoint = Camera.main.transform.position;
+          startPoint.y = 0;
         NavMesh.CalculatePath(startPoint, targetPoint, NavMesh.AllAreas, navMeshPath);
         List<Vector3> waypoints = new List<Vector3>();
         for (int i = 0; i < navMeshPath.corners.Length; i++)
@@ -54,10 +59,11 @@ public class NavGenator : MonoBehaviour
             Vector3 direction = nextWaypoint - currentWaypoint;
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             footList.Add(Instantiate(footTrackPrefab, nextWaypoint, rotation));
-        }
-        Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
-        footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
+        }       
+       // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
+        //footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
         PathCreated.Invoke();
+        Debug.Log("Finished Creating path");
     }
 
     public void Cleanup()
