@@ -9,8 +9,8 @@ public class FootprintGeneration : MonoBehaviour
     [SerializeField] private GameObject footIK =null; 
     [SerializeField] private GameObject footprintPrefab = null;
     [SerializeField] private string floorTag = "Floor";
-    private RaycastHit[] hits = new RaycastHit[1]; 
-    
+    private RaycastHit[] hits = new RaycastHit[1];
+    private bool cooldownCreation = false;
     
     void Update()
     {
@@ -39,6 +39,16 @@ public class FootprintGeneration : MonoBehaviour
 
     void SpawnFootprint( Vector3 position)
     {
+        if (cooldownCreation)
+            return;
+        
         Instantiate(footprintPrefab, position, footIK.transform.rotation);
+        cooldownCreation = true;
+        Invoke("ResetCoolDown", 3f);
+    }
+
+    void ResetCoolDown()
+    {
+        cooldownCreation = false;
     }
 }
