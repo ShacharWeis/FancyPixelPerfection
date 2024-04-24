@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [Button]
     public void NextLevel()
     {
+        Debug.Log("Next level. curr: " +state);
         if (state == States.ONABOARDING)
         {
             StartLevel1();
@@ -58,29 +59,36 @@ public class GameManager : MonoBehaviour
     {
         state = States.ONABOARDING;
         InstructionsTMP.text = OnboardingInstructions;
-        StartButton.transform.DOScale(1, 0.5f);
-        NextButton.transform.DOScale(0, 0.5f);
-        PrevButton.transform.DOScale(0, 0.5f);
+        StartButton.transform.DOScale(1, 0.2f);
+        NextButton.transform.DOScale(0, 0.2f);
+        PrevButton.transform.DOScale(0, 0.2f);
     }
     
     public void StartLevel1()
     {
+        Debug.Log("Start level 1");
         state = States.LEVEL_1_WINDOWS;
         InstructionsTMP.text = Level1Part1Instructions;
-        StartButton.transform.DOScale(0, 0.5f);
-        NextButton.transform.DOScale(1, 0.5f);
-        PrevButton.transform.DOScale(1, 0.5f);
+        StartButton.transform.DOScale(0, 0.2f);
+        NextButton.transform.DOScale(1, 0.2f);
+        PrevButton.transform.DOScale(1, 0.2f);
     }
     
     public void StartLevel2()
     {
+        Debug.Log("Start level 2");
+
         InstructionsTMP.text = Level2Part1Instructions;
         state = States.LEVEL_2_FLOORS;
+        NextButton.transform.DOScale(1, 0.2f);
     }
     public void StartLevel3()
     {
+        Debug.Log("Start level 3");
+
         InstructionsTMP.text = Level3Instructions;
         state = States.LEVEL_3_PATH;
+        NextButton.transform.DOScale(0, 0.2f);
     }
     
     [Button]

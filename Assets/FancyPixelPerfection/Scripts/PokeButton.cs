@@ -10,21 +10,29 @@ public class PokeButton : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnClick;
     [SerializeField] private Transform PushableButton;
-
+    private float cooldown = 0;
     private Color startColor;
     private void Start()
     {
         startColor = PushableButton.GetComponent<Renderer>().material.color;
     }
 
-    void OnTriggerEnter(Collider other) 
+    private void Update()
     {
+        if (cooldown > 0)
+            cooldown -= Time.deltaTime;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (cooldown > 0) return;
+        
         Debug.Log("PokeButton got OnTriggerEnter!");
 
-        if (other.tag.Equals("Player")) 
+        if (other.tag.Equals("FingerTip")) 
         {
             Debug.Log("Touch came from Player");
-
+            cooldown = 2;
             OnClick.Invoke();
             AnimateAClick();
         }
