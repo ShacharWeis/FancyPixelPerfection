@@ -286,8 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftFoot: {fileID: 6512339235692156267}
   RightFoot: {fileID: 1348025656733746351}
-  color: {r: 0.16769494, g: 0.8742138, b: 0.1872867, a: 0}
-  SFXSound: {fileID: 0}
+  color: {r: 0.16769494, g: 0.8742138, b: 0.1872867, a: 1}
+  SFXSound: {fileID: 8300000, guid: 10ae53b3b023fc44096afd826cb71c22, type: 3}
   tag: Foot
   timeFadeOut: 3
   EventStepedOn:

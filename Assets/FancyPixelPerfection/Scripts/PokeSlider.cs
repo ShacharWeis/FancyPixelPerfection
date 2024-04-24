@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,9 @@ public class PokeSlider : MonoBehaviour
         {
 
             Vector3 pos = GetComponent<Collider>().ClosestPoint(other.transform.position);
-            Knob.transform.position = new Vector3(pos.x, Knob.position.y, Knob.position.z);
             float v = InverseLerp(LowEnd.position, HighEnd.position, pos);
+            float localX = Mathf.Lerp(LowEnd.localPosition.x, HighEnd.localPosition.x, v);
+            Knob.transform.localPosition = new Vector3(localX,Knob.localPosition.y, Knob.localPosition.z);
             ValueChanged.Invoke(v);
         }
     }
