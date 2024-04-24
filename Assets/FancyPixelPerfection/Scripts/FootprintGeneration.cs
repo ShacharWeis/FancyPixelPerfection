@@ -11,6 +11,7 @@ public class FootprintGeneration : MonoBehaviour
     [SerializeField] private string floorTag = "Floor";
     private RaycastHit[] hits = new RaycastHit[1]; 
     
+    
     void Update()
     {
         if (IsFootTouchingGround(ref footIK))

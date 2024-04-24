@@ -6,10 +6,15 @@ using UnityEngine;
 public class MaterialFade :  Fade
 {
     private Renderer renderer;
+    public Renderer Renderer
+    {
+        get { return renderer; }
+        private set { renderer = value; }
+    }
 
     private void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        Renderer = GetComponent<Renderer>();
     }
 
     #region public
