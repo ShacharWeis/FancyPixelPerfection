@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646681735441856101}
   - component: {fileID: 2267006137878420330}
+  - component: {fileID: 7902951598057429310}
   m_Layer: 0
   m_Name: BetterPortal
   m_TagString: Untagged
@@ -55,6 +56,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7902951598057429310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137472080805628006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322b611746821b3438c3b8ffa2100449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2570768665822131780
 GameObject:
   m_ObjectHideFlags: 0

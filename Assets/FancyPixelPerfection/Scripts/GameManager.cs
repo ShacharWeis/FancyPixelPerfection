@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<PortalManager> Levels;
+    [SerializeField] private PortalManager PortalManager;
     [SerializeField] private TextMeshPro InstructionsTMP;
     [SerializeField] private PokeButton StartButton;
     [SerializeField] private PokeButton NextButton;
@@ -41,17 +41,14 @@ public class GameManager : MonoBehaviour
         if (state == States.ONABOARDING)
         {
             StartLevel1();
-            Levels[0].OpenPortals();
         }
         else if (state == States.LEVEL_1_WINDOWS)
         {
             StartLevel2();
-            Levels[1].OpenPortals();
         }
         else if (state == States.LEVEL_2_FLOORS)
         {
             StartLevel3();
-            Levels[2].OpenPortals();
         }
     }
 
@@ -97,17 +94,17 @@ public class GameManager : MonoBehaviour
         if (state == States.LEVEL_3_PATH)
         {
             StartLevel2();
-            Levels[2].OpenPortals();
+            PortalManager.Instance.CloseAllPortals();
         }
         else if (state == States.LEVEL_2_FLOORS)
         {
             StartLevel1();
-            Levels[1].OpenPortals();
+            PortalManager.Instance.CloseAllPortals();
         }
         else if (state == States.LEVEL_1_WINDOWS)
         {
             StartOnboardingState();
-            Levels[0].ClosePortals();
+            PortalManager.Instance.CloseAllPortals();
         }
     }
     
