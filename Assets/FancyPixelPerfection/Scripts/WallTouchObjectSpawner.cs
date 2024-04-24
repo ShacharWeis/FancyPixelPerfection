@@ -11,7 +11,7 @@ public class WallTouchObjectSpawner : MonoBehaviour {
             Debug.Log("Touch came from Player, instantiating prefab!");
 
             Vector3 pos = GetComponent<Collider>().ClosestPoint(other.transform.position);
-            Quaternion rot = Quaternion.LookRotation(Camera.main.transform.forward);
+            Quaternion rot = Quaternion.LookRotation(transform.forward);
             Instantiate(holePrefab, pos, rot);
         }
     }
