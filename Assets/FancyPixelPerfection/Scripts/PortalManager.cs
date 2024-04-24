@@ -8,6 +8,7 @@ public class PortalManager :  Singleton<PortalManager>
 {
     private List<Portal> portals = new List<Portal>();
     [SerializeField] private float minPortalDistance = 2;
+    [SerializeField] private Transform InteractivesPivot;
     public static PortalManager Instance 
     {
         get 
@@ -24,6 +25,7 @@ public class PortalManager :  Singleton<PortalManager>
     public void RegisterPortal(Portal p)
     {
         portals.Add(p);
+        p.transform.parent = InteractivesPivot;
     }
     
     public bool CheckIfPositionIsAllowed(Vector3 p)

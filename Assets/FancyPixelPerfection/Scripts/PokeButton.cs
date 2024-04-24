@@ -47,7 +47,7 @@ public class PokeButton : MonoBehaviour
     {
         var st = DOTween.Sequence();
         st.Append(PushableButton.DOLocalMoveY(-3, 0.2f));
-        st.Append(PushableButton.DOLocalMoveY(0.149f, 0.2f));
+        st.Append(PushableButton.DOLocalMoveY(-1.41f, 0.2f));
         
         var sc = DOTween.Sequence();
         sc.Append(PushableButton.GetComponent<Renderer>().material.DOColor(Color.green, 0.2f));

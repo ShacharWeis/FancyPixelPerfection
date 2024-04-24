@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PokeButton StartButton;
     [SerializeField] private PokeButton NextButton;
     [SerializeField] private PokeButton PrevButton;
+    [SerializeField] private Transform InteractivesPivot;
+    [SerializeField] private Vector2 InteractivesPivotHeightRange;
     [TextArea(5,5)] [SerializeField] private string OnboardingInstructions;
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
@@ -112,5 +115,10 @@ public class GameManager : MonoBehaviour
             PortalManager.Instance.CloseAllPortals();
         }
     }
-    
+
+    public void HeightSliderValueChanged(float v)
+    {
+        float y = Mathf.Lerp(InteractivesPivotHeightRange.x, InteractivesPivotHeightRange.y, v);
+        InteractivesPivot.position = new Vector3(InteractivesPivot.position.x, y, InteractivesPivot.position.z);
+    }
 }
