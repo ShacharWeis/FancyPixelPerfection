@@ -11,7 +11,7 @@ public class FootSteps : MonoBehaviour
     [SerializeField] private MaterialFade RightFoot;
     [SerializeField] private Color color;
     [SerializeField] private AudioClip SFXSound;
-    [SerializeField] private String tag = "Foot";
+    [SerializeField] private String ObjectTag = "Foot";
     [SerializeField] private float timeFadeOut = 3f;
     public UnityEvent EventStepedOn; 
     private AudioSource _audioSource;
@@ -29,7 +29,7 @@ public class FootSteps : MonoBehaviour
         if(beenTriggered)
             return;
         
-        if (other.gameObject.CompareTag(tag))
+        if (other.gameObject.CompareTag(ObjectTag))
         {
             Footcount++;
             if (Footcount >= 2)
@@ -52,7 +52,7 @@ public class FootSteps : MonoBehaviour
             return;
         
         
-        if (other.gameObject.CompareTag(tag))
+        if (other.gameObject.CompareTag(ObjectTag))
         {
             Footcount--;
             
