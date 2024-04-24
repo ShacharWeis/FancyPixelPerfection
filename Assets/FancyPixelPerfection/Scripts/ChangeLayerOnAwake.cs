@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ChangeLayerOnAwake : MonoBehaviour {
@@ -19,5 +20,10 @@ public class ChangeLayerOnAwake : MonoBehaviour {
         foreach (Transform t2 in t) {
             ChangeLayerOnSelfAndChildren(t2);
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }
