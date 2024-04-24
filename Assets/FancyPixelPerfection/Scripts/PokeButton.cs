@@ -17,6 +17,10 @@ public class PokeButton : MonoBehaviour
         startColor = PushableButton.GetComponent<Renderer>().material.color;
     }
 
+    public void Cooldown()
+    {
+        cooldown = 1;
+    }
     private void Update()
     {
         if (cooldown > 0)
@@ -32,7 +36,7 @@ public class PokeButton : MonoBehaviour
         if (other.tag.Equals("FingerTip")) 
         {
             Debug.Log("Touch came from Player");
-            cooldown = 2;
+            cooldown = 1;
             OnClick.Invoke();
             AnimateAClick();
         }

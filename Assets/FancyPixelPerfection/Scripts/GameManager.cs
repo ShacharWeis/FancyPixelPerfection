@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -11,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private PortalManager PortalManager;
     [SerializeField] private TextMeshPro InstructionsTMP;
+    [SerializeField] private TextMeshPro LevelTMP;
     [SerializeField] private PokeButton StartButton;
     [SerializeField] private PokeButton NextButton;
     [SerializeField] private PokeButton PrevButton;
@@ -57,8 +54,10 @@ public class GameManager : MonoBehaviour
         state = States.ONABOARDING;
         InstructionsTMP.text = OnboardingInstructions;
         StartButton.transform.DOScale(1, 0.2f);
+        StartButton.Cooldown();
         NextButton.transform.DOScale(0, 0.2f);
         PrevButton.transform.DOScale(0, 0.2f);
+        LevelTMP.text = "INTRO";
     }
     
     public void StartLevel1()
@@ -68,7 +67,10 @@ public class GameManager : MonoBehaviour
         InstructionsTMP.text = Level1Part1Instructions;
         StartButton.transform.DOScale(0, 0.2f);
         NextButton.transform.DOScale(1, 0.2f);
+        NextButton.Cooldown();
         PrevButton.transform.DOScale(1, 0.2f);
+        PrevButton.Cooldown();
+        LevelTMP.text = "LEVEL 1 - WINDOWS";
     }
     
     public void StartLevel2()
@@ -78,6 +80,8 @@ public class GameManager : MonoBehaviour
         InstructionsTMP.text = Level2Part1Instructions;
         state = States.LEVEL_2_FLOORS;
         NextButton.transform.DOScale(1, 0.2f);
+        NextButton.Cooldown();
+        LevelTMP.text = "LEVEL 2 - FLOORS";
     }
     public void StartLevel3()
     {
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour
         InstructionsTMP.text = Level3Instructions;
         state = States.LEVEL_3_PATH;
         NextButton.transform.DOScale(0, 0.2f);
+        LevelTMP.text = "LEVEL 3 - PATH";
     }
     
     [Button]
