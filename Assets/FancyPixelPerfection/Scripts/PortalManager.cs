@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PortalManager :  Singleton<PortalManager>
@@ -46,5 +43,22 @@ public class PortalManager :  Singleton<PortalManager>
             portal.CloseAndDestroy();
         }
         portals.Clear();;
+    }
+    public void ExplodeAllPortals()
+    {
+        foreach (var portal in portals)
+        {
+            portal.ExplodeToInfinity();
+        }
+    }
+
+    public void ExplodeWallButCloseFloorPortals() {
+        foreach (var portal in portals) {
+            if (portal is WallPortal) {
+                portal.ExplodeToInfinity();
+            } else if (portal is FloorPortal) {
+                portal.CloseAndDestroy();
+            }
+        }
     }
 }

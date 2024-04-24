@@ -1,0 +1,2 @@
+public class FloorPortal : Portal {
+}

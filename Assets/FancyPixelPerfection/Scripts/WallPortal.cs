@@ -1,0 +1,2 @@
+public class WallPortal : Portal {
+}
