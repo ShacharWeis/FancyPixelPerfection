@@ -237,6 +237,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  PushableButton: {fileID: 5643831103180179343}
 --- !u!1 &6430967471570101603
 GameObject:
   m_ObjectHideFlags: 0

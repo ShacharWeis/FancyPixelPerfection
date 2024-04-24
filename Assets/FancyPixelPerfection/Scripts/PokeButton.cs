@@ -1,19 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PokeButton : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnClick;
-    
-    void Start()
+    [SerializeField] private Transform PushableButton;
+
+    private Color startColor;
+    private void Start()
     {
+        startColor = PushableButton.GetComponent<Renderer>().material.color;
+    }
+
+    void OnTriggerEnter(Collider other) 
+    {
+        Debug.Log("PokeButton got OnTriggerEnter!");
+
+        if (other.tag.Equals("Player")) 
+        {
+            Debug.Log("Touch came from Player");
+
+            OnClick.Invoke();
+            AnimateAClick();
+        }
+    }
+
+    [Button]
+    public void AnimateAClick()
+    {
+        var st = DOTween.Sequence();
+        st.Append(PushableButton.DOLocalMoveY(-3, 0.2f));
+        st.Append(PushableButton.DOLocalMoveY(0.149f, 0.2f));
         
+        var sc = DOTween.Sequence();
+        sc.Append(PushableButton.GetComponent<Renderer>().material.DOColor(Color.green, 0.2f));
+        sc.Append(PushableButton.GetComponent<Renderer>().material.DOColor(startColor, 0.2f));
     }
     
-    void Update()
-    {
-        
-    }
+
 }
