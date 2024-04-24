@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/FancyPixelPerfection/Scenes/SamTest/StencilPortal.unity
-    guid: 5847056f6df365d4089295be74783d1d
   - enabled: 1
     path: Assets/FancyPixelPerfection/Scenes/Main.unity
     guid: 9b831f75515097346a01adec421f1279
