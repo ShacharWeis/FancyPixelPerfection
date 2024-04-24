@@ -35,7 +35,7 @@ public class FootSteps : MonoBehaviour
             if (Footcount >= 2)
             {
                 beenTriggered = true;
-                _audioSource.PlayOneShot(SFXSound);
+         //       _audioSource.PlayOneShot(SFXSound);
                 LeftFoot.StartFade(timeFadeOut, -1f);
                 RightFoot.StartFade(timeFadeOut, -1f);
                 EventStepedOn.Invoke();
