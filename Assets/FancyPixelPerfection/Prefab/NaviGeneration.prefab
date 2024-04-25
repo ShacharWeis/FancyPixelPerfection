@@ -76,14 +76,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758447155506c884983b59529295600a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footTrackPrefab: {fileID: 5946144643169845840, guid: af0b0b1bf77148b4880a3524a457fb4a, type: 3}
+  footLPrefab: {fileID: 5946144643169845840, guid: 301db607312b0e640af7e829fbf27077, type: 3}
+  footRPrefab: {fileID: 5946144643169845840, guid: af0b0b1bf77148b4880a3524a457fb4a, type: 3}
   finalGoalPrefab: {fileID: 5946144643169845840, guid: af0b0b1bf77148b4880a3524a457fb4a, type: 3}
   waypointDistance: 1
-  goal: {fileID: 0}
+  searchRadius: 3
+  fieldOfViewAngle: 90
+  goal: {x: 0, y: 0, z: 0}
   depthMaterial: {fileID: 2100000, guid: 5ad5a95b1b0d2cf47b5ce37d2cc1f535, type: 2}
   PathCreated:
     m_PersistentCalls:
       m_Calls: []
   PathCleanup:
+    m_PersistentCalls:
+      m_Calls: []
+  BadLocation:
     m_PersistentCalls:
       m_Calls: []

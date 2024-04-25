@@ -9,7 +9,8 @@ using UnityEngine.Serialization;
 
 public class NavGenator : MonoBehaviour
 {
-    [SerializeField] private GameObject footTrackPrefab;
+    [SerializeField] private GameObject footLPrefab;
+    [SerializeField] private GameObject footRPrefab;
     [SerializeField] private GameObject finalGoalPrefab;
     [SerializeField] private float waypointDistance = 0.5f;
     [SerializeField] private float searchRadius = 3f;
@@ -40,6 +41,7 @@ public class NavGenator : MonoBehaviour
     public void CreateNav()
     {
         navmesh.BuildNavMesh();
+        
         if (!FindValidTarget())
         {
             BadLocation.Invoke();
@@ -72,15 +74,33 @@ public class NavGenator : MonoBehaviour
             Vector3 nextWaypoint = interpolatedWaypoints[i];
             Vector3 direction = nextWaypoint - currentWaypoint;
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-            footList.Add(Instantiate(footTrackPrefab, nextWaypoint, rotation));
+            nextWaypoint.y += 0.01f;
+            if (i % 2 == 0)
+            {
+                footList.Add(Instantiate(footRPrefab, nextWaypoint, rotation));
+            }
+            else
+            {
+                footList.Add(Instantiate(footLPrefab, nextWaypoint, rotation));
+            }
         }
 
+        
+      
+        waypoints.Clear();
+        float offset = 0.2f; // Adjust this value to control the amount of movement
+        for (int i = 0; i < navMeshPath.corners.Length; i++)
+        {
+            Vector3 originalPoint = navMeshPath.corners[i];
+            Vector3 movedPoint = new Vector3(originalPoint.x + offset, originalPoint.y, originalPoint.z);
+            waypoints.Add(movedPoint);
+        }
         Vector3 NewPoint = waypoints[0] - new Vector3(0.1f, 0, 0.1f);
         waypoints.Insert(0, NewPoint);
 
         CreateMesh(ref waypoints);
-        // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
-        //footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
+            // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
+            //footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
         PathCreated.Invoke();
         Debug.Log("Finished Creating path");
     }
@@ -140,7 +160,7 @@ public class NavGenator : MonoBehaviour
 
     void CreateMesh(ref List<Vector3> points)
     {
-        float meshWidth = 1f;
+        float meshWidth = 2f;
 
         MeshPath = new GameObject("FootMesh");
         MeshFilter meshFilter = MeshPath.AddComponent<MeshFilter>();

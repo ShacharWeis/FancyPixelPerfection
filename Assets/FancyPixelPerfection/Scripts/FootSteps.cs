@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(AudioSource))]
 public class FootSteps : MonoBehaviour
 {
-    [SerializeField] private MaterialFade LeftFoot;
-    [SerializeField] private MaterialFade RightFoot;
+     [SerializeField] private MaterialFade Foot;
+    
     [SerializeField] private Color color;
+    [SerializeField] private Color colorfadeOut = Color.yellow;
     [SerializeField] private AudioClip SFXSound;
     [SerializeField] private String ObjectTag = "Foot";
     [SerializeField] private float timeFadeOut = 3f;
@@ -19,8 +21,7 @@ public class FootSteps : MonoBehaviour
     private bool beenTriggered = false;
     void Start()
     {
-        LeftFoot.MatRender.material.color = color;
-        RightFoot.MatRender.material.color = color;
+        Foot.MatRender.material.color = color;
         _audioSource = GetComponent<AudioSource>(); 
     }
 
@@ -36,8 +37,8 @@ public class FootSteps : MonoBehaviour
             {
                 beenTriggered = true;
                 _audioSource.PlayOneShot(SFXSound);
-                LeftFoot.StartFade(timeFadeOut, -1f);
-                RightFoot.StartFade(timeFadeOut, -1f);
+                Foot.MatRender.material.color = colorfadeOut;
+                Foot.StartFade(timeFadeOut, -1f);
                 EventStepedOn.Invoke();
                 Destroy(this.gameObject,timeFadeOut );
             }
