@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 316399471}
-  m_IndirectSpecularColor: {r: 0.16878854, g: 0.19227701, b: 0.2174814, a: 1}
+  m_IndirectSpecularColor: {r: 0.16881578, g: 0.19212781, b: 0.21698752, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4919,7 +4919,7 @@ MonoBehaviour:
   PrevButton: {fileID: 2067257942}
   InteractivesPivot: {fileID: 708543156}
   InteractivesPivotHeightRange: {x: 70, y: 400}
-  NavGenerator: {fileID: 1080115850}
+  NavGenerator: {fileID: 0}
   FootstepsHolder: {fileID: 2124322177}
   OnboardingInstructions: 'Hi Sam''s Wife!  This app will help you overcome fear
     ot heights.
@@ -5517,86 +5517,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 406919226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1080115849
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3035027469684462530, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: searchRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3035027469684462530, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: waypointDistance
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6247909673388519882, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_Name
-      value: NaviGeneration
-      objectReference: {fileID: 0}
-    - target: {fileID: 6247909673388519882, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22.800205
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 314.2477
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -165.63007
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
---- !u!114 &1080115850 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3035027469684462530, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
-  m_PrefabInstance: {fileID: 1080115849}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758447155506c884983b59529295600a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1080469629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9257,7 +9177,7 @@ PrefabInstance:
       objectReference: {fileID: 279691959}
     - target: {fileID: 1116123906783872125, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       propertyPath: MinDistance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2418402986752476843, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9885,6 +9805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 708543156}
     m_Modifications:
+    - target: {fileID: 1234812316951741077, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.43
+      objectReference: {fileID: 0}
     - target: {fileID: 1745411042151910297, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
       propertyPath: m_Name
       value: FootstepsHolder (1)
@@ -9892,6 +9816,14 @@ PrefabInstance:
     - target: {fileID: 1745411042151910297, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281694295752271398, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.404
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446440080805495129, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.381
       objectReference: {fileID: 0}
     - target: {fileID: 7863585967530259387, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9932,6 +9864,10 @@ PrefabInstance:
     - target: {fileID: 7863585967530259387, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919702221069874762, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10069,4 +10005,3 @@ SceneRoots:
   - {fileID: 6973650295575991892}
   - {fileID: 316399472}
   - {fileID: 1396139322}
-  - {fileID: 1080115849}
