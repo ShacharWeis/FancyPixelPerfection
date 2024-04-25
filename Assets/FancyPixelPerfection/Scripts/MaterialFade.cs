@@ -3,30 +3,30 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class MaterialFade :  Fade
 {
-    private Renderer _renderer;
-    public Renderer Renderer
+    private Renderer _matRender;
+    public Renderer MatRender
     {
-        get { return _renderer; }
-        private set { _renderer = value; }
+        get { return _matRender; }
+        private set { _matRender = value; }
     }
 
     private void Awake()
     {
-        Renderer = GetComponent<Renderer>();
+        MatRender = GetComponent<Renderer>();
     }
 
     #region public
     public void ResetAlpha(float alpha)
     {
         StopFade();
-        Color color = _renderer.material.color;
+        Color color = _matRender.material.color;
         color.a = alpha;
-        _renderer.material.color = color;
+        _matRender.material.color = color;
     }
 
     public void StartFade(float time, float alpha)
     {
-        float currentAlpha = _renderer.material.color.a;
+        float currentAlpha = _matRender.material.color.a;
         float deltaAlpha = alpha - currentAlpha;
         fade = StartCoroutine(FadeObject(time, deltaAlpha));
 
@@ -35,10 +35,10 @@ public class MaterialFade :  Fade
 
     protected override void ObjectToFade(float deltaAlpha)
     {
-        Color color = _renderer.material.color;
+        Color color = _matRender.material.color;
         float currentAlpha = color.a;
         float newAlpha = Mathf.Clamp01(currentAlpha + deltaAlpha * Time.deltaTime);
         color.a = newAlpha;
-        _renderer.material.color = color;
+        _matRender.material.color = color;
     }
 }

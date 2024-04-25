@@ -15,12 +15,12 @@ public class FootSteps : MonoBehaviour
     [SerializeField] private float timeFadeOut = 3f;
     public UnityEvent EventStepedOn;
     private AudioSource _audioSource;
-    private int Footcount = 0;
+    public int Footcount = 0;
     private bool beenTriggered = false;
     void Start()
     {
-        LeftFoot.Renderer.material.color = color;
-        RightFoot.Renderer.material.color = color;
+        LeftFoot.MatRender.material.color = color;
+        RightFoot.MatRender.material.color = color;
         _audioSource = GetComponent<AudioSource>(); 
     }
 
