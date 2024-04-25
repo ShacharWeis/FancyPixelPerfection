@@ -25,8 +25,8 @@ public class NavGenator : MonoBehaviour
     void Start()
     {
         navmesh = GetComponent<NavMeshSurface>();
-        Invoke("CreateNav", 1f);
-        Invoke("CreatePath", 2f);
+      //  Invoke("CreateNav", 1f);
+      //  Invoke("CreatePath", 2f);
     }
 
     public void SetGoal(ref Transform target)
