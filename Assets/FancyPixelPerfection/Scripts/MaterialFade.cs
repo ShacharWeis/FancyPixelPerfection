@@ -29,7 +29,7 @@ public class MaterialFade :  Fade
         float currentAlpha = _renderer.material.color.a;
         float deltaAlpha = alpha - currentAlpha;
         fade = StartCoroutine(FadeObject(time, deltaAlpha));
-        
+
     }
     #endregion
 

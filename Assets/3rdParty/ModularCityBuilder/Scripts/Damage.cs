@@ -1,16 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class Damage : MonoBehaviour 
+public class Damage : MonoBehaviour
 {
-	public float maxMoveDelta = 1.0f; 
+	public float maxMoveDelta = 1.0f;
 	public float maxCollisionStrength = 50.0f;
-	public float YforceDamp = 0.1f; 
+	public float YforceDamp = 0.1f;
 	public float demolutionRange = 0.5f;
 	public float impactDirManipulator = 0.0f;
 	public MeshFilter[] optionalMeshList;
 	//public AudioSource clickAudio;
-	
+
 	private MeshFilter[] meshfilters;
 	private float sqrDemRange;
 
@@ -28,8 +28,8 @@ public class Damage : MonoBehaviour
         	
  
 	}
-	
-	public void OnCollisionEnter( Collision collision ) 
+
+	public void OnCollisionEnter( Collision collision )
 	{
 		//clickAudio.Play ();
 		Vector3 colRelVel = collision.relativeVelocity;
@@ -43,7 +43,7 @@ public class Damage : MonoBehaviour
 		OnMeshForce( collision.contacts[0].point, Mathf.Clamp01(colStrength/maxCollisionStrength) );
 	
 	}
-	
+
 
 	public void OnMeshForce( Vector4 originPosAndForce )
 	{	
@@ -60,16 +60,16 @@ public class Damage : MonoBehaviour
         	Vector3 [] verts = meshfilters[j].mesh.vertices;
 
         	for (int i=0;i<verts.Length;++i)
-			{	
-        		Vector3 scaledVert = Vector3.Scale( verts[i], transform.localScale );						
+			{
+        		Vector3 scaledVert = Vector3.Scale( verts[i], transform.localScale );
         		Vector3 vertWorldPos = meshfilters[j].transform.position + (meshfilters[j].transform.rotation * scaledVert);
                 Vector3 originToMeDir = vertWorldPos - originPos;
                 Vector3 flatVertToCenterDir = transform.position - vertWorldPos;
                 flatVertToCenterDir.y = 0.0f;
-                   
-      
+
+
                 if( originToMeDir.sqrMagnitude < sqrDemRange ) //dot > 0.8f )
-                {	
+                {
 
                 	float dist = Mathf.Clamp01(originToMeDir.sqrMagnitude/sqrDemRange);
                     float moveDelta = force * (1.0f-dist) * maxMoveDelta;
@@ -82,9 +82,9 @@ public class Damage : MonoBehaviour
                 }
 
         	}
-       
+
         	meshfilters[j].mesh.vertices = verts;
         	meshfilters[j].mesh.RecalculateBounds();
         }
-	} 
+	}
 }

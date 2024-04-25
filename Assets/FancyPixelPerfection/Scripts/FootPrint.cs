@@ -6,7 +6,7 @@ using UnityEngine;
 public class FootPrint : MonoBehaviour
 {
 
-    
+
     [SerializeField] private float fadeStartTime = 1.0f;
     [SerializeField] private float timeToLive = 5f;
     [SerializeField] private float fadeOutTime = 2f;
@@ -28,5 +28,5 @@ public class FootPrint : MonoBehaviour
         Fade.StartFade(fadeOutTime, -1f);
         Destroy(this.gameObject, fadeOutTime);
     }
-     
+
 }

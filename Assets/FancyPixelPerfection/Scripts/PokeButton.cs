@@ -27,10 +27,10 @@ public class PokeButton : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (cooldown > 0) return;
-        
+
         Debug.Log("PokeButton got OnTriggerEnter!");
 
-        if (other.tag.Equals("FingerTip")) 
+        if (other.tag.Equals("FingerTip"))
         {
             Debug.Log("Touch came from Player");
             cooldown = 1;
@@ -45,11 +45,11 @@ public class PokeButton : MonoBehaviour
         var st = DOTween.Sequence();
         st.Append(PushableButton.DOLocalMoveY(-3, 0.2f));
         st.Append(PushableButton.DOLocalMoveY(-1.41f, 0.2f));
-        
+
         var sc = DOTween.Sequence();
         sc.Append(PushableButton.GetComponent<Renderer>().material.DOColor(Color.green, 0.2f));
         sc.Append(PushableButton.GetComponent<Renderer>().material.DOColor(startColor, 0.2f));
     }
-    
+
 
 }

@@ -66,7 +66,7 @@ public class NavGenator : MonoBehaviour
 
         Vector3 NewPoint = waypoints[0] - new Vector3(0.1f, 0, 0.1f);
         waypoints.Insert(0,NewPoint);
-        
+
         CreateMesh(ref waypoints);
         // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
         //footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
@@ -87,7 +87,7 @@ public class NavGenator : MonoBehaviour
         PathCleanup.Invoke();
         if (MeshPath)
         {
-            Destroy(MeshPath);      
+            Destroy(MeshPath);
         }
     }
 
@@ -129,7 +129,7 @@ public class NavGenator : MonoBehaviour
             {
                 int baseIndex = i * 2;
 
-                
+
                 triangles.Add(baseIndex - 2);
                 triangles.Add(baseIndex);
                 triangles.Add(baseIndex - 1);
@@ -138,7 +138,7 @@ public class NavGenator : MonoBehaviour
                 triangles.Add(baseIndex);
                 triangles.Add(baseIndex + 1);
 
-                
+
                 triangles.Add(baseIndex - 2);
                 triangles.Add(baseIndex + 1);
                 triangles.Add(baseIndex);

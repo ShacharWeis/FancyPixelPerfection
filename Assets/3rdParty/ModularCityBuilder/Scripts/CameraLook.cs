@@ -4,7 +4,7 @@ using System.Collections;
 
 
 
-public class CameraLook : MonoBehaviour 
+public class CameraLook : MonoBehaviour
 
 {
 
@@ -16,7 +16,7 @@ public class CameraLook : MonoBehaviour
 		target = GameObject.FindWithTag("Player").transform;
 	}
 
-	void Update () 
+	void Update ()
 
 	{
 

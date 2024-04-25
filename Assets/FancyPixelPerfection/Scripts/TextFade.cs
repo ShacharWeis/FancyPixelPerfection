@@ -7,14 +7,14 @@ using UnityEngine;
 public class TextFade : Fade
 {
     private TextMeshPro _text;
-    
+
 
     private void Awake()
     {
         _text = this.GetComponent<TextMeshPro>();
     }
 
- 
+
 
     public void ResetAlpha(float alpha)
     {
@@ -29,7 +29,7 @@ public class TextFade : Fade
         float deltaAlpha = alpha - currentAlpha;
         fade = StartCoroutine(FadeObject(time, deltaAlpha));
     }
-    
+
 
     protected override void ObjectToFade(float deltaAlpha)
     {

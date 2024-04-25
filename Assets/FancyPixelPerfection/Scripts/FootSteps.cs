@@ -13,7 +13,7 @@ public class FootSteps : MonoBehaviour
     [SerializeField] private AudioClip SFXSound;
     [SerializeField] private String ObjectTag = "Foot";
     [SerializeField] private float timeFadeOut = 3f;
-    public UnityEvent EventStepedOn; 
+    public UnityEvent EventStepedOn;
     private AudioSource _audioSource;
     private int Footcount = 0;
     private bool beenTriggered = false;
@@ -55,7 +55,7 @@ public class FootSteps : MonoBehaviour
         if (other.gameObject.CompareTag(ObjectTag))
         {
             Footcount--;
-            
+
         }
     }
 }

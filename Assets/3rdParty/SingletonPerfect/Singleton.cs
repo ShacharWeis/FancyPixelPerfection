@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Singleton<T> : MonoBehaviour where T : Singleton<T> {
 
@@ -20,7 +19,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T> {
 	
 	:: Third, Voila! Now you can access the instance of your singleton with YOURTYPE.Instance
 	*/
-	
+
 	protected static Singleton<T> mInstance {
 		get {
 			if(!_mInstance)

@@ -7,7 +7,7 @@ public abstract class Fade : MonoBehaviour
 
     protected Coroutine fade = null;
 
-      
+
     #region public
 
     public virtual bool IsFading()
@@ -29,7 +29,7 @@ public abstract class Fade : MonoBehaviour
 
     #endregion
 
- 
+
 
     protected virtual void ObjectToFade(float amount)
     {

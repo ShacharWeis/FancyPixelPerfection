@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class FootprintGeneration : MonoBehaviour
 {
-    [SerializeField] private GameObject footIK =null; 
+    [SerializeField] private GameObject footIK =null;
     [SerializeField] private GameObject footprintPrefab = null;
     [SerializeField] private string floorTag = "Floor";
     private RaycastHit[] hits = new RaycastHit[1];
     private bool cooldownCreation = false;
-    
+
     void Update()
     {
         if (IsFootTouchingGround(ref footIK))
@@ -19,7 +19,7 @@ public class FootprintGeneration : MonoBehaviour
             SpawnFootprint( footIK.transform.position );
         }
     }
-    
+
     bool IsFootTouchingGround(ref GameObject foot)
     {
         
@@ -27,8 +27,8 @@ public class FootprintGeneration : MonoBehaviour
             Debug.DrawRay(foot.transform.position, Vector3.down * 0.1f, Color.red);
             if (hitCount > 0)
             {
-                
-               
+
+
                 if (hits[0].collider.CompareTag(floorTag))
                 {
                     return true;

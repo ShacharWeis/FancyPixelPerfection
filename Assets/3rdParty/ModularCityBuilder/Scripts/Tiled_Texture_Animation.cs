@@ -3,26 +3,26 @@ using System.Collections;
 
 
 class Tiled_Texture_Animation : MonoBehaviour
-{		
+{
 	public int _uvTieX = 1;
 	public int _uvTieY = 1;
 	public float _fps = 10;
-	
+
 	public float mWaitBeforeStart = 0.0f;
 	public int mLoopStartFrame = 3;
-	
+
 	private float mStartWait;
-	
+
 	private float iX = 0;
 	private float iY = 1;
-	
+
 	private int mMaxFrames;
 	private int mFrameCntr;
 	private Vector2 _size;
 	private Renderer _myRenderer;
 	private int mLastCntr = -1;
-	
-	
+
+
     void Start ()
     {
 		mStartWait = mWaitBeforeStart;
@@ -63,19 +63,19 @@ class Tiled_Texture_Animation : MonoBehaviour
         {
 			iX = mFrameCntr % _uvTieX;
 			iY = ((mFrameCntr / _uvTieX) + 1) % _uvTieY;
-			
+
             Vector2 offset = new Vector2( iX*_size.x, 1.0f - (_size.y * iY ) );
             _myRenderer.material.SetTextureOffset( "_MainTex", offset );
-		
+
 			mFrameCntr++;
-			
+
 			if ( mFrameCntr == mMaxFrames )
-			{					
+			{
 				iX = mLoopStartFrame % _uvTieX;
 				iY = ((mLoopStartFrame / _uvTieX) + 1) % _uvTieY;
 				mFrameCntr = mLoopStartFrame;
 			}
-			
+
 			mLastCntr = cntr;
         }
     }

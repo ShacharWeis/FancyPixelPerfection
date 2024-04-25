@@ -18,12 +18,12 @@ public class LightFlashing : MonoBehaviour
     public GameObject mGlow;
 
 	private Color mColor;
-	
+
 	private Light mLight;
 	private Material mMaterial;
 
-	
-	private void Start() 
+
+	private void Start()
 	{
 		mLight = GetComponent<Light>();
 		mMaterial = mGlow.GetComponent<Renderer>().material;
@@ -35,13 +35,13 @@ public class LightFlashing : MonoBehaviour
 		}
 	}
 
-	private void OneLightChange() 
+	private void OneLightChange()
 	{
 		mLight.intensity = Random.Range(min, max);
 		//color.a = (((x-3) / (5-3)) * 0.5f) + 0.5f;
 	}
 
-	private void Update() 
+	private void Update()
 	{
 		if(useSmooth && mLight != null)
 		{

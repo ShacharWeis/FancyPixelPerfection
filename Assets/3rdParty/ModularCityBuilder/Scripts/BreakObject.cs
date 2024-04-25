@@ -7,7 +7,7 @@ public class BreakObject : MonoBehaviour {
 	public GameObject destroyed_ob;
 
 	// Update is called once per frame
-	private void OnCollisionEnter(Collision collision) 
+	private void OnCollisionEnter(Collision collision)
 	{
 		//if (Input.GetButtonDown ("q"))
 		if(health > 0)

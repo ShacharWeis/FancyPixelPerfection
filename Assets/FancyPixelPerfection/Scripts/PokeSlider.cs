@@ -13,7 +13,7 @@ public class PokeSlider : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
 
-        if (other.tag.Equals("FingerTip")) 
+        if (other.tag.Equals("FingerTip"))
         {
 
             Vector3 pos = GetComponent<Collider>().ClosestPoint(other.transform.position);
@@ -23,12 +23,12 @@ public class PokeSlider : MonoBehaviour
             ValueChanged.Invoke(v);
         }
     }
-    
+
     public static float InverseLerp(Vector3 a, Vector3 b, Vector3 value)
     {
         Vector3 AB = b - a;
         Vector3 AV = value - a;
         return Vector3.Dot(AV, AB) / Vector3.Dot(AB, AB);
     }
-    
+
 }
