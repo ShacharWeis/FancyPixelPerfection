@@ -155,6 +155,9 @@ public class NavGenator : MonoBehaviour
         
         footMeshObject.transform.SetParent(null);
         footMeshObject.AddComponent<MeshCollider>();
+        Vector3 pos = footMeshObject.transform.position;
+        pos.z -= 0.4f;
+        footMeshObject.transform.position = pos;
         meshRenderer.material = depthMaterial;
         footMeshObject.layer =   LayerMask.NameToLayer("Stencil");
 
