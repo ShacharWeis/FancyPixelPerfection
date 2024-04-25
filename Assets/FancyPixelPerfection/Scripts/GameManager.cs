@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level3Instructions;
 
+    public States startingState;
+    
     private int _footStepCounter;
 
     public enum States
@@ -30,6 +32,10 @@ public class GameManager : MonoBehaviour
         LEVEL_3_PATH
     }
 
+    void Awake() {
+        State = startingState;        
+    }
+    
     public void Start()
     {
         StartOnboardingState();
