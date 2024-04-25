@@ -52,6 +52,13 @@ public class PortalManager :  Singleton<PortalManager>
         }
     }
 
+    public void CloseAllWallPortals() {
+        foreach (var portal in portals) {
+            if (portal is WallPortal) {
+                portal.CloseAndDestroy();
+            }
+        }
+    }
     public void CloseAllFloorPortals() {
         foreach (var portal in portals) {
             if (portal is FloorPortal) {

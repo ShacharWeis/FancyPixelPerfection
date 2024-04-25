@@ -102,20 +102,20 @@ public class GameManager : MonoBehaviour
     [Button]
     public void PrevLevel()
     {
-        if (state == States.LEVEL_3_PATH)
-        {
-            StartLevel2();
+        if (state == States.LEVEL_3_PATH) {
+            PortalManager.CloseAllWallPortals();
             MegaPortalManager.AnimateMegaPortalAway();
+            StartLevel2();
         }
         else if (state == States.LEVEL_2_FLOORS)
         {
-            StartLevel1();
             PortalManager.CloseAllFloorPortals();
+            StartLevel1();
         }
         else if (state == States.LEVEL_1_WINDOWS)
         {
-            StartOnboardingState();
             PortalManager.CloseAllPortals();
+            StartOnboardingState();
         }
     }
 
