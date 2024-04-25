@@ -4,11 +4,11 @@ public class WallTouchObjectSpawner : MonoBehaviour {
 
     public GameObject holePrefab;
 
-    void OnTriggerEnter(Collider other) 
+    void OnTriggerEnter(Collider other)
     {
         Debug.Log("WallTouchObjectSpawner got OnTriggerEnter!");
 
-        if (other.tag.Equals("Player")) 
+        if (other.tag.Equals("Player"))
         {
             Debug.Log("Touch came from Player, instantiating prefab!");
 
