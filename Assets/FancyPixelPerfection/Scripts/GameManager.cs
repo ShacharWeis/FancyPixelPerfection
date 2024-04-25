@@ -36,21 +36,21 @@ public class GameManager : MonoBehaviour
         StartOnboardingState();
     }
 
-    private States state;
+    public static States State;
 
     [Button]
     public void NextLevel()
     {
-        Debug.Log("Next level. curr: " +state);
-        if (state == States.ONABOARDING)
+        Debug.Log("Next level. curr: " +State);
+        if (State == States.ONABOARDING)
         {
             StartLevel1();
         }
-        else if (state == States.LEVEL_1_WINDOWS)
+        else if (State == States.LEVEL_1_WINDOWS)
         {
             StartLevel2();
         }
-        else if (state == States.LEVEL_2_FLOORS)
+        else if (State == States.LEVEL_2_FLOORS)
         {
             StartLevel3();
         }
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void StartOnboardingState()
     {
-        state = States.ONABOARDING;
+        State = States.ONABOARDING;
         InstructionsTMP.text = OnboardingInstructions;
         StartButton.transform.DOScale(1, 0.2f);
         StartButton.Cooldown();
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     public void StartLevel1()
     {
         Debug.Log("Start level 1");
-        state = States.LEVEL_1_WINDOWS;
+        State = States.LEVEL_1_WINDOWS;
         InstructionsTMP.text = Level1Part1Instructions;
         StartButton.transform.DOScale(0, 0.2f);
         NextButton.transform.DOScale(1, 0.2f);
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Start level 2");
 
         InstructionsTMP.text = Level2Part1Instructions;
-        state = States.LEVEL_2_FLOORS;
+        State = States.LEVEL_2_FLOORS;
         NextButton.transform.DOScale(1, 0.2f);
         NextButton.Cooldown();
         LevelTMP.text = "LEVEL 2 - FLOORS";
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Start level 3");
 
         InstructionsTMP.text = Level3Instructions;
-        state = States.LEVEL_3_PATH;
+        State = States.LEVEL_3_PATH;
         NextButton.transform.DOScale(0, 0.2f);
         LevelTMP.text = "LEVEL 3 - PATH";
         StartCoroutine(Level3Stuff());
@@ -104,18 +104,18 @@ public class GameManager : MonoBehaviour
     [Button]
     public void PrevLevel()
     {
-        if (state == States.LEVEL_3_PATH) {
+        if (State == States.LEVEL_3_PATH) {
             PortalManager.Instance.CloseAllWallPortals();
             MegaPortalManager.Instance.AnimateMegaPortalAway();
            // NavGenerator.Cleanup();
             StartLevel2();
         }
-        else if (state == States.LEVEL_2_FLOORS)
+        else if (State == States.LEVEL_2_FLOORS)
         {
             PortalManager.Instance.CloseAllFloorPortals();
             StartLevel1();
         }
-        else if (state == States.LEVEL_1_WINDOWS)
+        else if (State == States.LEVEL_1_WINDOWS)
         {
             PortalManager.Instance.CloseAllPortals();
             StartOnboardingState();
