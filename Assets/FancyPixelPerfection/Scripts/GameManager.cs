@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -13,12 +14,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PokeButton PrevButton;
     [SerializeField] private Transform InteractivesPivot;
     [SerializeField] private Vector2 InteractivesPivotHeightRange;
-    [SerializeField] private NavGenator NavGenerator; 
+    [SerializeField] private NavGenator NavGenerator;
+    [SerializeField] private GameObject FootstepsHolder;
     [TextArea(5,5)] [SerializeField] private string OnboardingInstructions;
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level3Instructions;
-    
+
+    private int _footStepCounter;
+
     public enum States
     {
         ONABOARDING,
@@ -94,9 +98,7 @@ public class GameManager : MonoBehaviour
         state = States.LEVEL_3_PATH;
         NextButton.transform.DOScale(0, 0.2f);
         LevelTMP.text = "LEVEL 3 - PATH";
-        NavGenerator.CreateNav();
-        PortalManager.Instance.ExplodeWallButCloseFloorPortals();
-        MegaPortalManager.Instance.AnimateMegaPortalIn();
+        StartCoroutine(Level3Stuff());
     }
 
     [Button]
@@ -124,5 +126,23 @@ public class GameManager : MonoBehaviour
     {
         float y = Mathf.Lerp(InteractivesPivotHeightRange.x, InteractivesPivotHeightRange.y, v);
         InteractivesPivot.position = new Vector3(InteractivesPivot.position.x, y, InteractivesPivot.position.z);
+    }
+
+    IEnumerator Level3Stuff() {
+        PortalManager.Instance.ExplodeWallButCloseFloorPortals();
+        yield return new WaitForSeconds(1f);
+        MegaPortalManager.Instance.AnimateMegaPortalIn();
+        yield return new WaitForSeconds(0.5f);
+        //NavGenerator.CreateNav(); // TODO - Scott, you got this!
+        // Fallback for now:
+        FootstepsHolder.SetActive(true);
+    }
+
+    public void OnFootstep() {
+        _footStepCounter++;
+
+        if (_footStepCounter == 5) {
+            Debug.Log("You win!");
+        }
     }
 }
