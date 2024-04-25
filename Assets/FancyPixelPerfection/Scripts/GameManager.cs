@@ -2,6 +2,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PokeButton PrevButton;
     [SerializeField] private Transform InteractivesPivot;
     [SerializeField] private Vector2 InteractivesPivotHeightRange;
+    [SerializeField] private NavGenator NavGenerator; 
     [TextArea(5,5)] [SerializeField] private string OnboardingInstructions;
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level3Instructions;
-
+    
     public enum States
     {
         ONABOARDING,
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour
         state = States.LEVEL_3_PATH;
         NextButton.transform.DOScale(0, 0.2f);
         LevelTMP.text = "LEVEL 3 - PATH";
-
+        NavGenerator.CreateNav();
         PortalManager.Instance.ExplodeWallButCloseFloorPortals();
         MegaPortalManager.Instance.AnimateMegaPortalIn();
     }
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
         if (state == States.LEVEL_3_PATH) {
             PortalManager.Instance.CloseAllWallPortals();
             MegaPortalManager.Instance.AnimateMegaPortalAway();
+            NavGenerator.Cleanup();
             StartLevel2();
         }
         else if (state == States.LEVEL_2_FLOORS)

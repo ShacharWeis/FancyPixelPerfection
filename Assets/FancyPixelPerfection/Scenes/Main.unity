@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 316399471}
-  m_IndirectSpecularColor: {r: 0.7499619, g: 0.8081058, b: 0.873735, a: 1}
+  m_IndirectSpecularColor: {r: 0.74675345, g: 0.8041424, b: 0.87353724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4385,6 +4385,7 @@ MonoBehaviour:
   PrevButton: {fileID: 2067257942}
   InteractivesPivot: {fileID: 708543156}
   InteractivesPivotHeightRange: {x: 70, y: 400}
+  NavGenerator: {fileID: 1080115850}
   OnboardingInstructions: 'Hi Sam''s Wife!  This app will help you overcome fear
     ot heights.
 
@@ -4982,6 +4983,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3035027469684462530, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
+      propertyPath: searchRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3035027469684462530, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
+      propertyPath: waypointDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6247909673388519882, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
       propertyPath: m_Name
       value: NaviGeneration
@@ -5031,6 +5040,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
+--- !u!114 &1080115850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3035027469684462530, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
+  m_PrefabInstance: {fileID: 1080115849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758447155506c884983b59529295600a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1080469629
 GameObject:
   m_ObjectHideFlags: 0
