@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 public class MaterialFade :  Fade
 {
-    private Renderer renderer;
+    private Renderer _renderer;
     public Renderer Renderer
     {
-        get { return renderer; }
-        private set { renderer = value; }
+        get { return _renderer; }
+        private set { _renderer = value; }
     }
 
     private void Awake()
@@ -21,14 +19,14 @@ public class MaterialFade :  Fade
     public void ResetAlpha(float alpha)
     {
         StopFade();
-        Color color = renderer.material.color;
+        Color color = _renderer.material.color;
         color.a = alpha;
-        renderer.material.color = color;
+        _renderer.material.color = color;
     }
 
     public void StartFade(float time, float alpha)
     {
-        float currentAlpha = renderer.material.color.a;
+        float currentAlpha = _renderer.material.color.a;
         float deltaAlpha = alpha - currentAlpha;
         fade = StartCoroutine(FadeObject(time, deltaAlpha));
         
@@ -37,10 +35,10 @@ public class MaterialFade :  Fade
 
     protected override void ObjectToFade(float deltaAlpha)
     {
-        Color color = renderer.material.color;
+        Color color = _renderer.material.color;
         float currentAlpha = color.a;
         float newAlpha = Mathf.Clamp01(currentAlpha + deltaAlpha * Time.deltaTime);
         color.a = newAlpha;
-        renderer.material.color = color;
-    }   
+        _renderer.material.color = color;
+    }
 }
