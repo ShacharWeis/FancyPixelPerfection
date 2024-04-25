@@ -12,10 +12,13 @@ public class NavGenator : MonoBehaviour
     [SerializeField] private GameObject footTrackPrefab;
     [SerializeField] private GameObject finalGoalPrefab;
     [SerializeField] private float waypointDistance = 0.5f;
-    [SerializeField] private Transform goal;
+    [SerializeField] private float searchRadius = 3f;
+    [SerializeField] private float fieldOfViewAngle = 90f;
+    [SerializeField] private Vector3 goal;
     [SerializeField] private Material depthMaterial;
     public UnityEvent PathCreated;
     public UnityEvent PathCleanup;
+    public UnityEvent BadLocation;
     private NavMeshSurface navmesh;
     private NavMeshPath navMeshPath;
     private GameObject MeshPath;
@@ -25,24 +28,32 @@ public class NavGenator : MonoBehaviour
     void Start()
     {
         navmesh = GetComponent<NavMeshSurface>();
-      //  Invoke("CreateNav", 1f);
-      //  Invoke("CreatePath", 2f);
+        Invoke("CreateNav", 1f);
+        //  Invoke("CreatePath", 2f);
     }
 
     public void SetGoal(ref Transform target)
     {
-        goal = target;
+        goal = target.transform.position;
     }
 
     public void CreateNav()
     {
         navmesh.BuildNavMesh();
+        if (!FindValidTarget())
+        {
+            BadLocation.Invoke();
+        }
+        else
+        {
+            CreatePath();
+        }
     }
 
     public void CreatePath()
     {
         navMeshPath = new NavMeshPath();
-        Vector3 targetPoint = goal.transform.position;
+        Vector3 targetPoint = goal;
         Vector3 startPoint = Camera.main.transform.position;
         startPoint.y = 0;
         NavMesh.CalculatePath(startPoint, targetPoint, NavMesh.AllAreas, navMeshPath);
@@ -65,7 +76,7 @@ public class NavGenator : MonoBehaviour
         }
 
         Vector3 NewPoint = waypoints[0] - new Vector3(0.1f, 0, 0.1f);
-        waypoints.Insert(0,NewPoint);
+        waypoints.Insert(0, NewPoint);
 
         CreateMesh(ref waypoints);
         // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
@@ -91,21 +102,55 @@ public class NavGenator : MonoBehaviour
         }
     }
 
+    bool FindValidTarget()
+    {
+        Vector3 playerPosition = Camera.main.transform.position;
+        Quaternion playerRotation = Camera.main.transform.rotation;
+
+
+        for (float angle = -fieldOfViewAngle / 2; angle <= fieldOfViewAngle / 2; angle += 5f)
+        {
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * playerRotation * Vector3.forward;
+          
+            Debug.DrawRay(playerPosition, direction, Color.red, searchRadius);
+            Vector3 pointInFront = playerPosition + direction * searchRadius;
+            Debug.Log("Looking");
+            NavMeshHit navHit;
+            if (NavMesh.SamplePosition(pointInFront , out navHit, searchRadius, NavMesh.AllAreas))
+            {
+                
+                NavMeshPath path = new NavMeshPath();
+                if (NavMesh.CalculatePath(navHit.position, playerPosition, NavMesh.AllAreas, path))
+                {
+                    if (path.status == NavMeshPathStatus.PathComplete)
+                    {
+                        goal = navHit.position;
+
+                        Debug.Log("Found valid point on NavMesh: " + goal);
+                        return true;
+                    }
+                }
+               
+            }
+        }
+
+        Debug.Log("Found no valid point on NavMesh: ");
+        return false;
+    }
 
     void CreateMesh(ref List<Vector3> points)
     {
-        
-        float meshWidth = 1f; 
+        float meshWidth = 1f;
 
         MeshPath = new GameObject("FootMesh");
         MeshFilter meshFilter = MeshPath.AddComponent<MeshFilter>();
         MeshRenderer meshRenderer = MeshPath.AddComponent<MeshRenderer>();
 
-        
+
         List<Vector3> vertices = new List<Vector3>();
         List<int> triangles = new List<int>();
 
-        
+
         List<Vector3> outerPoints = new List<Vector3>();
         foreach (Vector3 point in points)
         {
@@ -114,12 +159,12 @@ public class NavGenator : MonoBehaviour
             outerPoints.Add(point + perpendicular * meshWidth);
         }
 
-        
+
         List<Vector3> combinedPoints = new List<Vector3>();
         combinedPoints.AddRange(points);
         combinedPoints.AddRange(outerPoints);
 
-        
+
         for (int i = 0; i < points.Count; i++)
         {
             vertices.Add(points[i]);
@@ -150,21 +195,19 @@ public class NavGenator : MonoBehaviour
         }
 
 
-        
         Mesh mesh = new Mesh();
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
         meshFilter.mesh = mesh;
 
-        
+
         MeshPath.transform.SetParent(null);
         MeshPath.AddComponent<MeshCollider>();
         Vector3 pos = MeshPath.transform.position;
-        pos.z -= 0.4f;
+       
         MeshPath.transform.position = pos;
         meshRenderer.material = depthMaterial;
-        MeshPath.layer =   LayerMask.NameToLayer("Stencil");
-
+        MeshPath.layer = LayerMask.NameToLayer("Stencil");
     }
 
 
