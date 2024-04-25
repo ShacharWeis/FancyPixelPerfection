@@ -187,7 +187,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   RightFoot: {fileID: 1348025656733746351}
   color: {r: 0.16769494, g: 0.8742138, b: 0.1872867, a: 1}
   SFXSound: {fileID: 8300000, guid: 10ae53b3b023fc44096afd826cb71c22, type: 3}
-  tag: Foot
+  ObjectTag: Foot
   timeFadeOut: 3
   EventStepedOn:
     m_PersistentCalls:
