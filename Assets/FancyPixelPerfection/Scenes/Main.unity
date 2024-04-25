@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 316399471}
-  m_IndirectSpecularColor: {r: 0.16881578, g: 0.19212781, b: 0.21698752, a: 1}
+  m_IndirectSpecularColor: {r: 0.16878854, g: 0.19227701, b: 0.2174814, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5231,6 +5231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPortalDistance: 1
   InteractivesPivot: {fileID: 708543156}
+  CityAudioSource: {fileID: 6973650295575991893}
 --- !u!114 &958980148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5804,6 +5805,10 @@ PrefabInstance:
     - target: {fileID: 6247909673388519882, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
       propertyPath: m_Name
       value: NaviGeneration
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247909673388519882, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7683648558207127887, guid: c2d2993b176a47e4f8d6ea7ad3426f0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10545,6 +10550,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf128eb1adb694b49b65493e61ce9570, type: 3}
+--- !u!82 &6973650295575991893 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 464931966517986592, guid: cf128eb1adb694b49b65493e61ce9570, type: 3}
+  m_PrefabInstance: {fileID: 6973650295575991892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

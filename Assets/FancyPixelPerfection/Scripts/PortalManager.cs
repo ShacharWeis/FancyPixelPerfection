@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PortalManager :  Singleton<PortalManager>
@@ -6,6 +7,8 @@ public class PortalManager :  Singleton<PortalManager>
     private List<Portal> portals = new List<Portal>();
     [SerializeField] private float minPortalDistance = 2;
     [SerializeField] private Transform InteractivesPivot;
+    [SerializeField] private AudioSource CityAudioSource;
+
     public static PortalManager Instance
     {
         get
@@ -43,8 +46,9 @@ public class PortalManager :  Singleton<PortalManager>
             if (portal!=null)
                 portal.CloseAndDestroy();
         }
-        portals.Clear();;
+        portals.Clear();
     }
+
     public void ExplodeAllPortals()
     {
         foreach (var portal in portals)
@@ -75,5 +79,9 @@ public class PortalManager :  Singleton<PortalManager>
                 portal.CloseAndDestroy();
             }
         }
+    }
+
+    public void StartHearingCityAudio() {
+        CityAudioSource.DOFade(1f, 1f);
     }
 }

@@ -21,6 +21,9 @@ public class WallTouchObjectSpawner : MonoBehaviour {
                     Quaternion rot = Quaternion.LookRotation(transform.forward);
                     var p = Instantiate(holePrefab, pos, rot).GetComponent<Portal>();
                     PortalManager.Instance.RegisterPortal(p);
+
+                    // Fade in city audio!
+                    PortalManager.Instance.StartHearingCityAudio();
                 }
             }
         }
