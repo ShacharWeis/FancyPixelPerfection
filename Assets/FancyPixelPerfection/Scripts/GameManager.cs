@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -7,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PortalManager PortalManager;
+    [SerializeField] private MegaPortalManager MegaPortalManager;
     [SerializeField] private TextMeshPro InstructionsTMP;
     [SerializeField] private TextMeshPro LevelTMP;
     [SerializeField] private PokeButton StartButton;
@@ -94,25 +94,28 @@ public class GameManager : MonoBehaviour
         state = States.LEVEL_3_PATH;
         NextButton.transform.DOScale(0, 0.2f);
         LevelTMP.text = "LEVEL 3 - PATH";
+
+        PortalManager.ExplodeWallButCloseFloorPortals();
+        MegaPortalManager.AnimateMegaPortalIn();
     }
-    
+
     [Button]
     public void PrevLevel()
     {
         if (state == States.LEVEL_3_PATH)
         {
             StartLevel2();
-            PortalManager.Instance.CloseAllPortals();
+            MegaPortalManager.AnimateMegaPortalAway();
         }
         else if (state == States.LEVEL_2_FLOORS)
         {
             StartLevel1();
-            PortalManager.Instance.CloseAllPortals();
+            PortalManager.CloseAllFloorPortals();
         }
         else if (state == States.LEVEL_1_WINDOWS)
         {
             StartOnboardingState();
-            PortalManager.Instance.CloseAllPortals();
+            PortalManager.CloseAllPortals();
         }
     }
 

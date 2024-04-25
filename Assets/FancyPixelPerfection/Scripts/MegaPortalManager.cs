@@ -2,13 +2,13 @@ using DG.Tweening;
 using UnityEngine;
 
 public class MegaPortalManager : MonoBehaviour {
-    public Transform megaPortalTop;
+    public Transform megaPortal;
 
     public void AnimateMegaPortalIn() {
-        megaPortalTop.DOLocalMove(new Vector3 (0,0,0), 1);
+        megaPortal.DOLocalMove(new Vector3 (0,0,0), 1);
     }
     public void AnimateMegaPortalAway() {
-        megaPortalTop.DOLocalMove(new Vector3 (0,1,0), 1);
+        megaPortal.DOLocalMove(new Vector3 (0,1,0), 1);
     }
 
     void Update() {

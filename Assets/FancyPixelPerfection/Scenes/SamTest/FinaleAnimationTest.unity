@@ -17962,7 +17962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce458230d696b8a4e87c744fbe39813c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  megaPortalTop: {fileID: 670725821}
+  megaPortal: {fileID: 670725821}
 --- !u!1001 &1905901520
 PrefabInstance:
   m_ObjectHideFlags: 0
