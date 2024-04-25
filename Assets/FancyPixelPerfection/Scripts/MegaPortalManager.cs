@@ -1,7 +1,20 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class MegaPortalManager : MonoBehaviour {
+public class MegaPortalManager : Singleton<MegaPortalManager> {
+
+    public static MegaPortalManager Instance
+    {
+        get
+        {
+            return ((MegaPortalManager)mInstance);
+        }
+        set
+        {
+            mInstance = value;
+        }
+    }
+
     public Transform megaPortal;
 
     public void AnimateMegaPortalIn() {

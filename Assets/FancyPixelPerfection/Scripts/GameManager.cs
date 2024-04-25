@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PortalManager PortalManager;
-    [SerializeField] private MegaPortalManager MegaPortalManager;
     [SerializeField] private TextMeshPro InstructionsTMP;
     [SerializeField] private TextMeshPro LevelTMP;
     [SerializeField] private PokeButton StartButton;
@@ -18,7 +16,7 @@ public class GameManager : MonoBehaviour
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level3Instructions;
-    
+
     public enum States
     {
         ONABOARDING,
@@ -62,7 +60,7 @@ public class GameManager : MonoBehaviour
         PrevButton.transform.DOScale(0, 0.2f);
         LevelTMP.text = "INTRO";
     }
-    
+
     public void StartLevel1()
     {
         Debug.Log("Start level 1");
@@ -75,7 +73,7 @@ public class GameManager : MonoBehaviour
         PrevButton.Cooldown();
         LevelTMP.text = "LEVEL 1 - WINDOWS";
     }
-    
+
     public void StartLevel2()
     {
         Debug.Log("Start level 2");
@@ -95,26 +93,26 @@ public class GameManager : MonoBehaviour
         NextButton.transform.DOScale(0, 0.2f);
         LevelTMP.text = "LEVEL 3 - PATH";
 
-        PortalManager.ExplodeWallButCloseFloorPortals();
-        MegaPortalManager.AnimateMegaPortalIn();
+        PortalManager.Instance.ExplodeWallButCloseFloorPortals();
+        MegaPortalManager.Instance.AnimateMegaPortalIn();
     }
 
     [Button]
     public void PrevLevel()
     {
         if (state == States.LEVEL_3_PATH) {
-            PortalManager.CloseAllWallPortals();
-            MegaPortalManager.AnimateMegaPortalAway();
+            PortalManager.Instance.CloseAllWallPortals();
+            MegaPortalManager.Instance.AnimateMegaPortalAway();
             StartLevel2();
         }
         else if (state == States.LEVEL_2_FLOORS)
         {
-            PortalManager.CloseAllFloorPortals();
+            PortalManager.Instance.CloseAllFloorPortals();
             StartLevel1();
         }
         else if (state == States.LEVEL_1_WINDOWS)
         {
-            PortalManager.CloseAllPortals();
+            PortalManager.Instance.CloseAllPortals();
             StartOnboardingState();
         }
     }
