@@ -15,13 +15,17 @@ public class MegaPortalManager : Singleton<MegaPortalManager> {
         }
     }
 
-    public Transform megaPortal;
+    public Transform[] megaPortals;
 
     public void AnimateMegaPortalIn() {
-        megaPortal.DOLocalMove(new Vector3 (0,0,0), 1);
+        foreach (Transform t in megaPortals) {
+            t.DOScale(1000, 1);
+        }
     }
     public void AnimateMegaPortalAway() {
-        megaPortal.DOLocalMove(new Vector3 (0,1,0), 1);
+        foreach (Transform t in megaPortals) {
+            t.DOScale(0, 1);
+        }
     }
 
     void Update() {
