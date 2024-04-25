@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 316399471}
-  m_IndirectSpecularColor: {r: 0.16875958, g: 0.19206235, b: 0.21689188, a: 1}
+  m_IndirectSpecularColor: {r: 0.16881578, g: 0.19212781, b: 0.21698752, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3687,6 +3687,7 @@ Transform:
   - {fileID: 1634249376}
   - {fileID: 593980709}
   - {fileID: 1880361083}
+  - {fileID: 5922765437628711589}
   m_Father: {fileID: 1396139322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &726359201
@@ -9983,7 +9984,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 708543156}
     m_Modifications:
     - target: {fileID: 567027018027690358, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
       propertyPath: m_IsActive
@@ -10059,15 +10060,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7713054527177750879, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7713054527177750879, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7713054527177750879, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7713054527177750879, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10090,6 +10091,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
+--- !u!4 &5922765437628711589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7713054527177750879, guid: 874f296e35032ce478a9cd4032fd67e4, type: 3}
+  m_PrefabInstance: {fileID: 5922765437628711588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6973650295575991892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10176,4 +10182,3 @@ SceneRoots:
   - {fileID: 316399472}
   - {fileID: 1396139322}
   - {fileID: 1080115849}
-  - {fileID: 5922765437628711588}

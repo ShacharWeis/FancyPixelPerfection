@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         if (state == States.LEVEL_3_PATH) {
             PortalManager.Instance.CloseAllWallPortals();
             MegaPortalManager.Instance.AnimateMegaPortalAway();
-            NavGenerator.Cleanup();
+           // NavGenerator.Cleanup();
             StartLevel2();
         }
         else if (state == States.LEVEL_2_FLOORS)
