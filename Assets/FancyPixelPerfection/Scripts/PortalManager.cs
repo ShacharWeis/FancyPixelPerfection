@@ -29,7 +29,7 @@ public class PortalManager :  Singleton<PortalManager>
     {
         foreach (var portal in portals)
         {
-            if (Vector3.Distance(p, portal.transform.position) < minPortalDistance)
+            if (portal!=null && Vector3.Distance(p, portal.transform.position) < minPortalDistance)
                 return false;
         }
 
@@ -40,7 +40,8 @@ public class PortalManager :  Singleton<PortalManager>
     {
         foreach (var portal in portals)
         {
-            portal.CloseAndDestroy();
+            if (portal!=null)
+                portal.CloseAndDestroy();
         }
         portals.Clear();;
     }

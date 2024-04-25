@@ -323,8 +323,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4687744241946502836}
   m_HandleRect: {fileID: 2819877682249289318}
   m_Direction: 2
-  m_Value: 0.99591565
-  m_Size: 0.66664326
+  m_Value: 0.9877046
+  m_Size: 0.6666432
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1216,7 +1216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00016627493, y: 0.3986892}
+  m_AnchoredPosition: {x: -0.00016627493, y: 1.2245255}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3487529288085144309
@@ -1272,7 +1272,6 @@ GameObject:
   - component: {fileID: 4672757957866782449}
   - component: {fileID: 2477822832393810050}
   - component: {fileID: 7652840163982656212}
-  - component: {fileID: 2064282875306968608}
   m_Layer: 0
   m_Name: BGPanel (1)
   m_TagString: Untagged
@@ -1345,27 +1344,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2064282875306968608
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4106236596486002810}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4187019687158890744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,7 +1664,6 @@ GameObject:
   - component: {fileID: 2355421987403127262}
   - component: {fileID: 4189933374110745247}
   - component: {fileID: 9035290028459326003}
-  - component: {fileID: 8922002066207083588}
   m_Layer: 0
   m_Name: BackgroundPanel
   m_TagString: Untagged
@@ -1760,27 +1737,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8922002066207083588
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4592635064821117095}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5301926325808369676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,7 +2592,6 @@ GameObject:
   - component: {fileID: 6755136203013929329}
   - component: {fileID: 8737973416074380543}
   - component: {fileID: 1510124196835092266}
-  - component: {fileID: 6490008095592319035}
   m_Layer: 0
   m_Name: BGPanel
   m_TagString: Untagged
@@ -2709,27 +2664,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6490008095592319035
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9008118631222583102}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &619325920133208492
 PrefabInstance:
   m_ObjectHideFlags: 0
