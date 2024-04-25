@@ -80,6 +80,7 @@ MonoBehaviour:
   finalGoalPrefab: {fileID: 5946144643169845840, guid: af0b0b1bf77148b4880a3524a457fb4a, type: 3}
   waypointDistance: 1
   goal: {fileID: 0}
+  depthMaterial: {fileID: 2100000, guid: 5ad5a95b1b0d2cf47b5ce37d2cc1f535, type: 2}
   PathCreated:
     m_PersistentCalls:
       m_Calls: []
