@@ -18,7 +18,7 @@ public class NavGenator : MonoBehaviour
     public UnityEvent PathCleanup;
     private NavMeshSurface navmesh;
     private NavMeshPath navMeshPath;
-
+    private GameObject MeshPath;
     private List<GameObject> footList = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -85,6 +85,10 @@ public class NavGenator : MonoBehaviour
         footList.Clear();
         navMeshPath.ClearCorners();
         PathCleanup.Invoke();
+        if (MeshPath)
+        {
+            Destroy(MeshPath);      
+        }
     }
 
 
@@ -93,9 +97,9 @@ public class NavGenator : MonoBehaviour
         
         float meshWidth = 1f; 
 
-        GameObject footMeshObject = new GameObject("FootMesh");
-        MeshFilter meshFilter = footMeshObject.AddComponent<MeshFilter>();
-        MeshRenderer meshRenderer = footMeshObject.AddComponent<MeshRenderer>();
+        MeshPath = new GameObject("FootMesh");
+        MeshFilter meshFilter = MeshPath.AddComponent<MeshFilter>();
+        MeshRenderer meshRenderer = MeshPath.AddComponent<MeshRenderer>();
 
         
         List<Vector3> vertices = new List<Vector3>();
@@ -153,13 +157,13 @@ public class NavGenator : MonoBehaviour
         meshFilter.mesh = mesh;
 
         
-        footMeshObject.transform.SetParent(null);
-        footMeshObject.AddComponent<MeshCollider>();
-        Vector3 pos = footMeshObject.transform.position;
+        MeshPath.transform.SetParent(null);
+        MeshPath.AddComponent<MeshCollider>();
+        Vector3 pos = MeshPath.transform.position;
         pos.z -= 0.4f;
-        footMeshObject.transform.position = pos;
+        MeshPath.transform.position = pos;
         meshRenderer.material = depthMaterial;
-        footMeshObject.layer =   LayerMask.NameToLayer("Stencil");
+        MeshPath.layer =   LayerMask.NameToLayer("Stencil");
 
     }
 
