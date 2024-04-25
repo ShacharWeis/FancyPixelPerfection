@@ -237,4 +237,4 @@ public class NavGenator : MonoBehaviour
 
         return interpolatedWaypoints;
     }
-}
+}   
