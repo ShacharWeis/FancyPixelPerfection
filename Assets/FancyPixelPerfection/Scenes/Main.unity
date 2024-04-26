@@ -3220,6 +3220,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 310952769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &590675967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1338445909530759838, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+  m_PrefabInstance: {fileID: 2067257937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &590675968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3487529288085144309, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+  m_PrefabInstance: {fileID: 2067257937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &593399647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5028,6 +5038,8 @@ MonoBehaviour:
   InteractivesPivotHeightRange: {x: 70, y: 400}
   NavGenerator: {fileID: 0}
   FootstepsHolder: {fileID: 2124322177}
+  HeightSliderPanel: {fileID: 590675968}
+  WindowSizeSliderPanel: {fileID: 590675967}
   OnboardingInstructions: 'Hi Sam''s Wife!  This app will help you overcome fear
     ot heights.
 
@@ -9311,6 +9323,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3487529288085144309, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3561139294225140777, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9318,6 +9334,22 @@ PrefabInstance:
     - target: {fileID: 4541472841359991115, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       propertyPath: m_Name
       value: InstructionsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889954648852089493, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889954648852089493, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 958980147}
+    - target: {fileID: 4889954648852089493, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PortalSizeSliderValueChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889954648852089493, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      propertyPath: ValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PortalManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4900008710415500037, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9433,10 +9465,22 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7530391943123025823, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6102163373432432127, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1996286744899132909, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8669719080238697363, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 660447657054527479, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4427543206512351701, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6802182105871875826, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 927d9aec53e8f7544aa9e2dda3269e41, type: 3}

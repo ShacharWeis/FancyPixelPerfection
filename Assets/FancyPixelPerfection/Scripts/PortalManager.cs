@@ -9,6 +9,9 @@ public class PortalManager :  Singleton<PortalManager>
     [SerializeField] private Transform InteractivesPivot;
     [SerializeField] private AudioSource CityAudioSource;
 
+    private const float PORTAL_SCALE_LOW = 0.5f;
+    private const float PORTAL_SCALE_HIGH = 2.0f;
+
     public static PortalManager Instance
     {
         get
@@ -20,7 +23,6 @@ public class PortalManager :  Singleton<PortalManager>
             mInstance = value;
         }
     }
-
 
     public void RegisterPortal(Portal p)
     {
@@ -43,17 +45,21 @@ public class PortalManager :  Singleton<PortalManager>
     {
         foreach (var portal in portals)
         {
-            if (portal!=null)
+            if (portal!=null) {
                 portal.CloseAndDestroy();
+            }
         }
         portals.Clear();
     }
 
+    // This one's only used in a test scene, safe to trim probably.
     public void ExplodeAllPortals()
     {
         foreach (var portal in portals)
         {
-            portal.ExplodeToInfinity();
+            if (portal != null) {
+                portal.ExplodeToInfinity();
+            }
         }
     }
 
@@ -83,5 +89,15 @@ public class PortalManager :  Singleton<PortalManager>
 
     public void StartHearingCityAudio() {
         CityAudioSource.DOFade(1f, 1f);
+    }
+
+    public void PortalSizeSliderValueChanged(float v)
+    {
+        float newScale = Mathf.Lerp(PORTAL_SCALE_LOW, PORTAL_SCALE_HIGH, v);
+        foreach (var portal in portals) {
+            if (portal != null) {
+                portal.transform.localScale = newScale * Vector3.one;
+            }
+        }
     }
 }

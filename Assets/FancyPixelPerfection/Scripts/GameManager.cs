@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector2 InteractivesPivotHeightRange;
     [SerializeField] private NavGenator NavGenerator;
     [SerializeField] private GameObject FootstepsHolder;
+    [SerializeField] private GameObject HeightSliderPanel;
+    [SerializeField] private GameObject WindowSizeSliderPanel;
     [TextArea(5,5)] [SerializeField] private string OnboardingInstructions;
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
@@ -69,6 +71,8 @@ public class GameManager : MonoBehaviour
         StartButton.Cooldown();
         NextButton.transform.DOScale(0, 0.2f);
         PrevButton.transform.DOScale(0, 0.2f);
+        HeightSliderPanel.transform.DOScale(0, 0);
+        WindowSizeSliderPanel.transform.DOScale(0, 0);
         LevelTMP.text = "INTRO";
     }
 
@@ -82,6 +86,8 @@ public class GameManager : MonoBehaviour
         NextButton.Cooldown();
         PrevButton.transform.DOScale(1, 0.2f);
         PrevButton.Cooldown();
+        HeightSliderPanel.transform.DOScale(1, 0.5f);
+        WindowSizeSliderPanel.transform.DOScale(1, 0.5f);
         LevelTMP.text = "LEVEL 1 - WINDOWS";
     }
 
@@ -93,6 +99,7 @@ public class GameManager : MonoBehaviour
         State = States.LEVEL_2_FLOORS;
         NextButton.transform.DOScale(1, 0.2f);
         NextButton.Cooldown();
+        WindowSizeSliderPanel.transform.DOScale(1, 0.5f);
         LevelTMP.text = "LEVEL 2 - FLOORS";
     }
     public void StartLevel3()
@@ -102,6 +109,7 @@ public class GameManager : MonoBehaviour
         InstructionsTMP.text = Level3Instructions;
         State = States.LEVEL_3_PATH;
         NextButton.transform.DOScale(0, 0.2f);
+        WindowSizeSliderPanel.transform.DOScale(0, 0.5f);
         LevelTMP.text = "LEVEL 3 - PATH";
         StartCoroutine(Level3Stuff());
     }
