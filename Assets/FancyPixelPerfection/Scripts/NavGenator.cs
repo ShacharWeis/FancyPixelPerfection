@@ -41,7 +41,7 @@ public class NavGenator : MonoBehaviour
     public void CreateNav()
     {
         navmesh.BuildNavMesh();
-        
+
         if (!FindValidTarget())
         {
             BadLocation.Invoke();
@@ -85,8 +85,7 @@ public class NavGenator : MonoBehaviour
             }
         }
 
-        
-      
+
         waypoints.Clear();
         float offset = 0.2f; // Adjust this value to control the amount of movement
         for (int i = 0; i < navMeshPath.corners.Length; i++)
@@ -95,12 +94,13 @@ public class NavGenator : MonoBehaviour
             Vector3 movedPoint = new Vector3(originalPoint.x + offset, originalPoint.y, originalPoint.z);
             waypoints.Add(movedPoint);
         }
+
         Vector3 NewPoint = waypoints[0] - new Vector3(0.1f, 0, 0.1f);
         waypoints.Insert(0, NewPoint);
 
         CreateMesh(ref waypoints);
-            // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
-            //footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
+        // Vector3 finalWaypoint = interpolatedWaypoints[interpolatedWaypoints.Count - 1];
+        //footList.Add(Instantiate(finalGoalPrefab, finalWaypoint, Quaternion.identity));
         PathCreated.Invoke();
         Debug.Log("Finished Creating path");
     }
@@ -128,17 +128,20 @@ public class NavGenator : MonoBehaviour
         Quaternion playerRotation = Camera.main.transform.rotation;
 
 
-        for (float angle = -fieldOfViewAngle / 2; angle <= fieldOfViewAngle / 2; angle += 5f)
+        int numberOfRays = 72; // Adjust the number of rays for smoother coverage
+
+        for (int i = 0; i < numberOfRays; i++)
         {
+            float angle = i * 360f / numberOfRays - 180f; 
             Vector3 direction = Quaternion.Euler(0, angle, 0) * playerRotation * Vector3.forward;
-          
+
             Debug.DrawRay(playerPosition, direction, Color.red, searchRadius);
             Vector3 pointInFront = playerPosition + direction * searchRadius;
+            pointInFront.y = 0f;
             Debug.Log("Looking");
             NavMeshHit navHit;
-            if (NavMesh.SamplePosition(pointInFront , out navHit, searchRadius, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(pointInFront, out navHit, searchRadius, NavMesh.AllAreas))
             {
-                
                 NavMeshPath path = new NavMeshPath();
                 if (NavMesh.CalculatePath(navHit.position, playerPosition, NavMesh.AllAreas, path))
                 {
@@ -150,7 +153,6 @@ public class NavGenator : MonoBehaviour
                         return true;
                     }
                 }
-               
             }
         }
 
@@ -224,7 +226,7 @@ public class NavGenator : MonoBehaviour
         MeshPath.transform.SetParent(null);
         MeshPath.AddComponent<MeshCollider>();
         Vector3 pos = MeshPath.transform.position;
-       
+
         MeshPath.transform.position = pos;
         meshRenderer.material = depthMaterial;
         MeshPath.layer = LayerMask.NameToLayer("Stencil");
@@ -257,4 +259,4 @@ public class NavGenator : MonoBehaviour
 
         return interpolatedWaypoints;
     }
-}   
+}
