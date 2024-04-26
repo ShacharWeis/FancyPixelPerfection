@@ -120,7 +120,8 @@ public class GameManager : MonoBehaviour
         if (State == States.LEVEL_3_PATH) {
             PortalManager.Instance.CloseAllWallPortals();
             MegaPortalManager.Instance.AnimateMegaPortalAway();
-           // NavGenerator.Cleanup();
+            FootstepsHolder.SetActive(false);
+            // NavGenerator.Cleanup();
             StartLevel2();
         }
         else if (State == States.LEVEL_2_FLOORS)
