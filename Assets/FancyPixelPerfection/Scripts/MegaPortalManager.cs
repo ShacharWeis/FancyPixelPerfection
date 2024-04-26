@@ -19,7 +19,7 @@ public class MegaPortalManager : Singleton<MegaPortalManager> {
 
     public void AnimateMegaPortalIn() {
         foreach (Transform t in megaPortals) {
-            t.DOScale(1, 2);
+            t.DOScale(1, 2).SetEase(Ease.InQuart);;
         }
     }
     public void AnimateMegaPortalAway() {
