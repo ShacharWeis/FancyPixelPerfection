@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject FootstepsHolder;
     [SerializeField] private GameObject HeightSliderPanel;
     [SerializeField] private GameObject WindowSizeSliderPanel;
+    [SerializeField] private ParticleSystem FinaleParticles;
     [TextArea(5,5)] [SerializeField] private string OnboardingInstructions;
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level3Instructions;
+    [TextArea(5,5)] [SerializeField] private string WinStateInstructions;
 
     public States startingState;
-    
-    private int _footStepCounter;
 
     public enum States
     {
@@ -35,9 +35,9 @@ public class GameManager : MonoBehaviour
     }
 
     void Awake() {
-        State = startingState;        
+        State = startingState;
     }
-    
+
     public void Start()
     {
         StartOnboardingState();
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartOnboardingState()
+    private void StartOnboardingState()
     {
         State = States.ONABOARDING;
         InstructionsTMP.text = OnboardingInstructions;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         LevelTMP.text = "INTRO";
     }
 
-    public void StartLevel1()
+    private void StartLevel1()
     {
         Debug.Log("Start level 1");
         State = States.LEVEL_1_WINDOWS;
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         LevelTMP.text = "LEVEL 1 - WINDOWS";
     }
 
-    public void StartLevel2()
+    private void StartLevel2()
     {
         Debug.Log("Start level 2");
 
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         WindowSizeSliderPanel.transform.DOScale(1, 0.5f);
         LevelTMP.text = "LEVEL 2 - FLOORS";
     }
-    public void StartLevel3()
+    private void StartLevel3()
     {
         Debug.Log("Start level 3");
 
@@ -114,6 +114,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Level3Stuff());
     }
 
+    public void ShowWin() {
+        Debug.Log("Show Win State");
+        InstructionsTMP.text = WinStateInstructions;
+        FinaleParticles.Play();
+    }
+
     [Button]
     public void PrevLevel()
     {
@@ -121,6 +127,7 @@ public class GameManager : MonoBehaviour
             PortalManager.Instance.CloseAllWallPortals();
             MegaPortalManager.Instance.AnimateMegaPortalAway();
             FootstepsHolder.SetActive(false);
+            FinaleParticles.Stop();
             // NavGenerator.Cleanup();
             StartLevel2();
         }
@@ -150,13 +157,5 @@ public class GameManager : MonoBehaviour
         //NavGenerator.CreateNav(); // TODO - Scott, you got this!
         // Fallback for now:
         FootstepsHolder.SetActive(true);
-    }
-
-    public void OnFootstep() {
-        _footStepCounter++;
-
-        if (_footStepCounter == 5) {
-            Debug.Log("You win!");
-        }
     }
 }
