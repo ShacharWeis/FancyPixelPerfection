@@ -3202,6 +3202,11 @@ MonoBehaviour:
   - {fileID: 1897514902}
   - {fileID: 1189603267}
   - {fileID: 530922135}
+--- !u!198 &565171379 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3576924614362489594, guid: 4a919ff208278c347a4582e77e55ed83, type: 3}
+  m_PrefabInstance: {fileID: 17196669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &568517072
 GameObject:
   m_ObjectHideFlags: 0
@@ -5147,19 +5152,19 @@ MonoBehaviour:
   FootstepsHolder: {fileID: 2124322177}
   HeightSliderPanel: {fileID: 590675968}
   WindowSizeSliderPanel: {fileID: 590675967}
-  FinaleParticles: {fileID: 0}
-  OnboardingInstructions: 'Hello! This app will help you overcome fear of heights.
+  FinaleParticles: {fileID: 565171379}
+  OnboardingInstructions: 'Hello! This app will help you overcome a fear of heights.
 
 
     Press
-    Start to begin. '
+    Start to begin.'
   Level1Part1Instructions: Touch a wall to create a window. You can create as many
     windows as you want.  Press next to move to the next nevel.
   Level2Part1Instructions: Touch the floor to open up a glass floor window. You can
     open as many as you want. Press next to move to the next nevel.
   Level3Instructions: 'Walk the path to the end to complete the experience. Good
     luck! You can''t die, if that helps. '
-  WinStateInstructions: 
+  WinStateInstructions: You did it!  Congratulations!
   startingState: 0
 --- !u!4 &958980146
 Transform:
@@ -10108,7 +10113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745411042151910297, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4281694295752271398, guid: 0b2ace0da0b35ee41be30cb467caf2d2, type: 3}
       propertyPath: m_LocalPosition.z
