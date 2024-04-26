@@ -42,7 +42,7 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 21300000, guid: 562168a062b162c4ba0a8412b99f1dd4, type: 3}
     duration: 2
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 562168a062b162c4ba0a8412b99f1dd4, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
@@ -144,6 +144,8 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 11400000, guid: 467f3ec7325227a4fa68c4c27a7d477a, type: 2}
+  - {fileID: -6337816215877842897, guid: 8e1ea7be2fd171b4ab3debd570f6edbb, type: 2}
+  - {fileID: 11400000, guid: 69a8385efa68827438a56ba6e5033e3c, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -265,7 +267,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 2
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
+  androidSplashScreen: {fileID: 2800000, guid: 562168a062b162c4ba0a8412b99f1dd4, type: 3}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   AndroidEnableArmv9SecurityFeatures: 0
