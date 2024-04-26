@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class Portal : MonoBehaviour {
+    public Transform thingToScale;
 
     public void CloseAndDestroy()
     {
@@ -12,5 +13,9 @@ public class Portal : MonoBehaviour {
 
     public void ExplodeToInfinity() {
         GetComponent<Animator>().Play("ScaleOutInfinityBounce");
+    }
+
+    public void DoScaling(float newScale) {
+        thingToScale.localScale = Vector3.one * newScale;
     }
 }

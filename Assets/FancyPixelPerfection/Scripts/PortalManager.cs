@@ -96,11 +96,7 @@ public class PortalManager :  Singleton<PortalManager>
         float newScale = Mathf.Lerp(PORTAL_SCALE_LOW, PORTAL_SCALE_HIGH, v);
         foreach (var portal in portals) {
             if (portal != null) {
-                Animator pA = portal.GetComponent<Animator>();
-                if (pA != null) {
-                    pA.StopPlayback();
-                }
-                portal.transform.DOScale(newScale, 0.1f);
+                portal.DoScaling(newScale);
             }
         }
     }
