@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject HeightSliderPanel;
     [SerializeField] private GameObject WindowSizeSliderPanel;
     [SerializeField] private ParticleSystem FinaleParticles;
+    [SerializeField] private AudioSource FinaleAudio;
     [TextArea(5,5)] [SerializeField] private string OnboardingInstructions;
     [TextArea(5,5)] [SerializeField] private string Level1Part1Instructions;
     [TextArea(5,5)] [SerializeField] private string Level2Part1Instructions;
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Show Win State");
         InstructionsTMP.text = WinStateInstructions;
         FinaleParticles.Play();
+        FinaleAudio.Play();
     }
 
     [Button]
