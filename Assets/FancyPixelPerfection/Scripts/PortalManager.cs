@@ -100,7 +100,7 @@ public class PortalManager :  Singleton<PortalManager>
                 if (pA != null) {
                     pA.StopPlayback();
                 }
-                portal.transform.localScale = newScale * Vector3.one;
+                portal.transform.DOScale(newScale, 0.1f);
             }
         }
     }
